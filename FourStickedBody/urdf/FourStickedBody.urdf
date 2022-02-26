@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="FourStickedBody">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0572875426150859 -0.0801766144577414 -0.125023667269852"
+        rpy="0 0 0" />
+      <mass
+        value="1.37088974358268" />
+      <inertia
+        ixx="0.0110007758484815"
+        ixy="6.30725217071683E-21"
+        ixz="-4.56603698129271E-19"
+        iyy="0.0135005634933447"
+        iyz="1.35450825305558E-19"
+        izz="0.00269988156811165" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FLShoulder">
+    <inertial>
+      <origin
+        xyz="-0.00802562474482291 -0.00937838395684484 -0.0150000041413501"
+        rpy="0 0 0" />
+      <mass
+        value="0.0380904123808196" />
+      <inertia
+        ixx="8.22818106409756E-06"
+        ixy="-3.24120160645022E-06"
+        ixz="5.24378206058208E-12"
+        iyy="1.39259945891085E-05"
+        iyz="3.02596913848168E-13"
+        izz="1.67443920898861E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FLShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FLShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLShoulder"
+    type="revolute">
+    <origin
+      xyz="-0.11729 -0.024976 -0.080177"
+      rpy="-1.5708 -1.5146 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FLShoulder" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="FLUpper">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 0.0517481888371821 0.00631330305514961"
+        rpy="0 0 0" />
+      <mass
+        value="0.0435443386505745" />
+      <inertia
+        ixx="8.17019889821495E-05"
+        ixy="8.0256371752345E-20"
+        ixz="3.46355763211349E-22"
+        iyy="3.95469594018177E-06"
+        iyz="3.13712635017228E-06"
+        izz="8.3329545582726E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FLUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FLUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLUpper"
+    type="revolute">
+    <origin
+      xyz="-0.04 -0.00507890825442417 -0.015"
+      rpy="1.5707963267949 -0.990481798126781 0" />
+    <parent
+      link="FLShoulder" />
+    <child
+      link="FLUpper" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FLLower">
+    <inertial>
+      <origin
+        xyz="1.38777878078145E-17 -0.0498758392155302 0.013583176614747"
+        rpy="0 0 0" />
+      <mass
+        value="0.0453114845182188" />
+      <inertia
+        ixx="8.74545044586466E-05"
+        ixy="4.31986803099693E-20"
+        ixz="-4.96458509177453E-21"
+        iyy="3.99756423744962E-06"
+        iyz="3.02361904746636E-06"
+        izz="8.90888937394829E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FLLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FLLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLLower"
+    type="revolute">
+    <origin
+      xyz="0 0.12 0"
+      rpy="0 0 -2.181" />
+    <parent
+      link="FLUpper" />
+    <child
+      link="FLLower" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="FRShoulder">
+    <inertial>
+      <origin
+        xyz="-0.0080256 -0.0093784 0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.03809" />
+      <inertia
+        ixx="8.2282E-06"
+        ixy="-3.2412E-06"
+        ixz="5.4265E-12"
+        iyy="1.3926E-05"
+        iyz="2.6277E-13"
+        izz="1.6744E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FRShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FRShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRShoulder"
+    type="revolute">
+    <origin
+      xyz="0.0027125 -0.024976 -0.080177"
+      rpy="-1.5708 -1.4926 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="FRShoulder" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FRUpper">
+    <inertial>
+      <origin
+        xyz="0 0.051748188837182 0.0181615498230934"
+        rpy="0 0 0" />
+      <mass
+        value="0.0435443386505745" />
+      <inertia
+        ixx="8.17019889821495E-05"
+        ixy="-2.77403290225783E-20"
+        ixz="2.67176156494147E-21"
+        iyy="3.95469594018179E-06"
+        iyz="3.13712635017226E-06"
+        izz="8.33295455827261E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FRUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FRUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRUpper"
+    type="revolute">
+    <origin
+      xyz="-0.04 0.00676933851351959 0.015"
+      rpy="-1.5707963267949 -1.21616154826317 -3.14159265358979" />
+    <parent
+      link="FRShoulder" />
+    <child
+      link="FRUpper" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FRLower">
+    <inertial>
+      <origin
+        xyz="0 -0.0498758392155302 0.0300232487438312"
+        rpy="0 0 0" />
+      <mass
+        value="0.0453114845182188" />
+      <inertia
+        ixx="8.74545044586465E-05"
+        ixy="-6.16216469127503E-20"
+        ixz="1.4222588364364E-21"
+        iyy="3.99756423744963E-06"
+        iyz="3.02361904746645E-06"
+        izz="8.90888937394827E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FRLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/FRLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRLower"
+    type="revolute">
+    <origin
+      xyz="0 0.12 -0.00459182536114035"
+      rpy="0 0 2.28311065724853" />
+    <parent
+      link="FRUpper" />
+    <child
+      link="FRLower" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="BLShoulder">
+    <inertial>
+      <origin
+        xyz="-0.00802562794245548 -0.00937838212341552 0.0149999995569143"
+        rpy="0 0 0" />
+      <mass
+        value="0.0380904173619555" />
+      <inertia
+        ixx="8.22818141301055E-06"
+        ixy="-3.24120085791354E-06"
+        ixz="6.40681352299785E-12"
+        iyy="1.39259975911142E-05"
+        iyz="-2.15471813802222E-14"
+        izz="1.67443958034683E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BLShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BLShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLShoulder"
+    type="revolute">
+    <origin
+      xyz="-0.11729 0.27502 -0.080177"
+      rpy="-1.5708 -1.3344 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="BLShoulder" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BLUpper">
+    <inertial>
+      <origin
+        xyz="-1.1102E-16 0.051748 0.0050209"
+        rpy="0 0 0" />
+      <mass
+        value="0.043544" />
+      <inertia
+        ixx="8.1702E-05"
+        ixy="1.4643E-19"
+        ixz="-8.32E-21"
+        iyy="3.9547E-06"
+        iyz="3.1371E-06"
+        izz="8.333E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BLUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BLUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLUpper"
+    type="revolute">
+    <origin
+      xyz="-0.04 -0.00637134747104802 0.015"
+      rpy="1.57079632679489 -1.20166853376716 0" />
+    <parent
+      link="BLShoulder" />
+    <child
+      link="BLUpper" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BLLower">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 -0.0498758392155301 0.0122907373981234"
+        rpy="0 0 0" />
+      <mass
+        value="0.0453114845182188" />
+      <inertia
+        ixx="8.74545044586466E-05"
+        ixy="-1.11808349037568E-19"
+        ixz="3.94340252476676E-21"
+        iyy="3.99756423744963E-06"
+        iyz="3.0236190474665E-06"
+        izz="8.90888937394828E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BLLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BLLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLLower"
+    type="revolute">
+    <origin
+      xyz="0 0.12 0"
+      rpy="0 0 -1.91007720746634" />
+    <parent
+      link="BLUpper" />
+    <child
+      link="BLLower" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="BRShoulder">
+    <inertial>
+      <origin
+        xyz="-0.00802562482451437 -0.00937838389000736 -0.0150000039947057"
+        rpy="0 0 0" />
+      <mass
+        value="0.0380904124897674" />
+      <inertia
+        ixx="8.22818107266218E-06"
+        ixy="-3.241201577631E-06"
+        ixz="5.29909363257654E-12"
+        iyy="1.39259946630586E-05"
+        iyz="2.90839140571192E-13"
+        izz="1.67443921944249E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BRShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BRShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRShoulder"
+    type="revolute">
+    <origin
+      xyz="0.00271245738491416 0.275023667269852 -0.0801766144577414"
+      rpy="-1.5707963267949 -1.508060454758 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="BRShoulder" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="BRUpper">
+    <inertial>
+      <origin
+        xyz="1.3878E-16 0.051748 0.015569"
+        rpy="0 0 0" />
+      <mass
+        value="0.043544" />
+      <inertia
+        ixx="8.1702E-05"
+        ixy="-1.6845E-19"
+        ixz="9.2613E-21"
+        iyy="3.9547E-06"
+        iyz="3.1371E-06"
+        izz="8.333E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BRUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BRUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRUpper"
+    type="revolute">
+    <origin
+      xyz="-0.04 0.0041765 -0.015"
+      rpy="-1.5708 -1.0851 3.1416" />
+    <parent
+      link="BRShoulder" />
+    <child
+      link="BRUpper" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BRLower">
+    <inertial>
+      <origin
+        xyz="0.372621100730368 0.0921157613760128 0.0186620848691712"
+        rpy="0 0 0" />
+      <mass
+        value="0.0453114845182188" />
+      <inertia
+        ixx="8.74545044586465E-05"
+        ixy="-1.32984172718925E-19"
+        ixz="3.98602770971858E-21"
+        iyy="3.99756423744963E-06"
+        iyz="3.02361904746642E-06"
+        izz="8.90888937394826E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BRLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://FourStickedBody/meshes/BRLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRLower"
+    type="revolute">
+    <origin
+      xyz="0.259893147497077 -0.182429580616913 0.00417648565982762"
+      rpy="0 0 1.9166197630552" />
+    <parent
+      link="BRUpper" />
+    <child
+      link="BRLower" />
+      <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
+
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+</robot>
