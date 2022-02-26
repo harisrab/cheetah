@@ -13,12 +13,12 @@ startOrientation = p.getQuaternionFromEuler([0,0,0])
 
 robot = p.loadURDF("./FourStickedBody/urdf/FourStickedBody.urdf", startPos, startOrientation)
 
-maxForce = 0
-mode = p.VELOCITY_CONTROL
+maxForce = 100
+mode = p.TORQUE_CONTROL 
 
 
-for i in range(10):
-    p.setJointMotorControl2(robot, i, controlMode=mode, force=maxForce)
+for i in range(12):
+    p.setJointMotorControl2(robot, i, controlMode=mode, force=maxForce, targetPosition=0)
 
 
 for i in range (10000):
