@@ -86,6 +86,9 @@ axis=[[1,0,0], [0,1,0], [0,1,0], [0,0,1],
 #Drop the body in the scene at the following body coordinates
 basePosition = [0,0,1]
 baseOrientation = [0,0,0,1]
+
+
+
 #Main function that creates the dog
 dog = p.createMultiBody(body_Mass,sh_body,visualShapeId,basePosition,baseOrientation,
                         linkMasses=link_Masses,
