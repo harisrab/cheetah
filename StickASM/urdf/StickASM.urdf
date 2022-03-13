@@ -208,6 +208,7 @@
     <inertial>
       <origin
         xyz="8.006E-08 -0.030962 5.1893E-08"
+        
         rpy="0 0 0" />
       <mass
         value="0.11624" />
@@ -230,7 +231,7 @@
       <material
         name="butyl rubber">
         <color
-          rgba="0.29804 0.29804 0.29804 1" />
+          rgba="0.29840 0.29804 0.29804 1" />
       </material>
     </visual>
     <collision>
@@ -420,7 +421,7 @@
     <inertial>
       <origin
         xyz="7.8431E-08 -0.030962 5.1235E-08"
-        rpy="0 0 0" />
+        rpy="0 -1.5708 0" />
       <mass
         value="0.11624" />
       <inertia
@@ -460,7 +461,7 @@
     type="fixed">
     <origin
       xyz="0 -0.1 0.0248934676145698"
-      rpy="3.14159263868863 -1.5707963267949 0" />
+      rpy="0 -1.5707963267949 0" />
     <parent
       link="FRLower" />
     <child
@@ -884,7 +885,7 @@
     type="fixed">
     <origin
       xyz="0 -0.1 0.029473"
-      rpy="3.1416 -1.5708 0" />
+      rpy="0 -1.5708 0" />
     <parent
       link="BRLower" />
     <child
