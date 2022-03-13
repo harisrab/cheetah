@@ -98,6 +98,8 @@ sh_knee = p.createCollisionShape(p.GEOM_BOX,halfExtents=[0.02, 0.02, 0.02])
 sh_foot = p.createCollisionShape(p.GEOM_SPHERE,radius=0.04)
 
 
+
+
 #The Dog robot is the body with other shapes linked to it
 body_Mass = 1
 

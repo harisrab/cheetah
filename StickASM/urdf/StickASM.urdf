@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="StickASM">
+  <link
+    name="Body">
+    <inertial>
+      <origin
+        xyz="-0.00500000000000015 -0.0150000000000002 -0.00499999999999896"
+        rpy="0 0 0" />
+      <mass
+        value="1.37088974358268" />
+      <inertia
+        ixx="0.0110007758484815"
+        ixy="1.96455395481344E-21"
+        ixz="-4.96308367531819E-20"
+        iyy="0.0135005634933447"
+        iyz="-6.41064974728595E-21"
+        izz="0.00269988156811165" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/Body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/Body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FLShoulder">
+    <inertial>
+      <origin
+        xyz="6.93889390390723E-18 -0.00879740255477079 -0.0150000000000001"
+        rpy="0 0 0" />
+      <mass
+        value="0.0320578905108868" />
+      <inertia
+        ixx="8.45939720006731E-06"
+        ixy="2.17052192733914E-21"
+        ixz="1.98428750238942E-21"
+        iyy="4.44451246213101E-06"
+        iyz="-5.01950869064248E-21"
+        izz="8.78245355399603E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLShoulder"
+    type="continuous">
+    <origin
+      xyz="-0.0650000000000001 -0.145000000000001 -0.0150000000000002"
+      rpy="-1.5707963267949 -1.40621703436074 0" />
+    <parent
+      link="Body" />
+    <child
+      link="FLShoulder" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="FLUpper">
+    <inertial>
+      <origin
+        xyz="0 0.0600000000000001 0.00473157331657191"
+        rpy="0 0 0" />
+      <mass
+        value="0.0375556776546689" />
+      <inertia
+        ixx="6.20837416421208E-05"
+        ixy="4.33045594283761E-20"
+        ixz="3.09656309124208E-21"
+        iyy="2.93059020603247E-06"
+        iyz="-2.40078540042328E-20"
+        izz="6.44442544233059E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLUpper"
+    type="continuous">
+    <origin
+      xyz="0 -0.025268426683428 -0.0150000000000002"
+      rpy="1.5707963267949 -0.693164372580323 0" />
+    <parent
+      link="FLShoulder" />
+    <child
+      link="FLUpper" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FLLower">
+    <inertial>
+      <origin
+        xyz="0 -0.054587971991015 0.0134904645578"
+        rpy="0 0 0" />
+      <mass
+        value="0.0488457762535073" />
+      <inertia
+        ixx="0.000101797858292996"
+        ixy="-3.11284608115955E-20"
+        ixz="3.18400110501725E-22"
+        iyy="4.43601550465346E-06"
+        iyz="3.30928229921803E-06"
+        izz="0.000103093198261683" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLLower"
+    type="continuous">
+    <origin
+      xyz="0 0.12 0"
+      rpy="0 0 -1.52817546237672" />
+    <parent
+      link="FLUpper" />
+    <child
+      link="FLLower" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="FLFeet">
+    <inertial>
+      <origin
+        xyz="8.006E-08 -0.030962 5.1893E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.11624" />
+      <inertia
+        ixx="4.5835E-05"
+        ixy="-8.1167E-11"
+        ixz="-2.2827E-11"
+        iyy="4.3608E-05"
+        iyz="-3.6086E-11"
+        izz="4.4581E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLFeet.STL" />
+      </geometry>
+      <material
+        name="butyl rubber">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FLFeet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLFeet"
+    type="fixed">
+    <origin
+      xyz="0 -0.1 0.0147315733165719"
+      rpy="-0.517604271370109 1.57079630572147 -0.526651036330121" />
+    <parent
+      link="FLLower" />
+    <child
+      link="FLFeet" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="FRShoulder">
+    <inertial>
+      <origin
+        xyz="0 -0.00879740255477083 0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0320578905108868" />
+      <inertia
+        ixx="8.4593972000673E-06"
+        ixy="-9.26442286059391E-22"
+        ixz="3.60083340953907E-22"
+        iyy="4.444512462131E-06"
+        iyz="-1.25489025866428E-21"
+        izz="8.78245355399602E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRShoulder"
+    type="continuous">
+    <origin
+      xyz="0.0550000000000002 -0.145 -0.015"
+      rpy="-1.5707963267949 -1.52735315429356 3.14159265358979" />
+    <parent
+      link="Body" />
+    <child
+      link="FRShoulder" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FRUpper">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 0.06 0.0111397894009754"
+        rpy="0 0 0" />
+      <mass
+        value="0.037555677654669" />
+      <inertia
+        ixx="6.20837416421209E-05"
+        ixy="5.71747239396653E-21"
+        ixz="3.60961517954552E-23"
+        iyy="2.93059020603247E-06"
+        iyz="-2.58768387361517E-20"
+        izz="6.4444254423306E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRUpper"
+    type="continuous">
+    <origin
+      xyz="0 -0.0188602105990246 0.015"
+      rpy="-1.5707963267949 -0.983801789980512 -3.14159265358979" />
+    <parent
+      link="FRShoulder" />
+    <child
+      link="FRUpper" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FRLower">
+    <inertial>
+      <origin
+        xyz="4.16333634234434E-17 -0.054587971991015 0.023652358855798"
+        rpy="0 0 0" />
+      <mass
+        value="0.0488457762535073" />
+      <inertia
+        ixx="0.000101797858292995"
+        ixy="1.10114283143059E-20"
+        ixz="-3.36550231622117E-22"
+        iyy="4.43601550465344E-06"
+        iyz="3.30928229921801E-06"
+        izz="0.000103093198261683" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRLower"
+    type="continuous">
+    <origin
+      xyz="0 0.12 -0.00375367821359442"
+      rpy="0 0 1.61544501831559" />
+    <parent
+      link="FRUpper" />
+    <child
+      link="FRLower" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="FRFeet">
+    <inertial>
+      <origin
+        xyz="7.8431E-08 -0.030962 5.1235E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.11624" />
+      <inertia
+        ixx="4.5835E-05"
+        ixy="-7.7158E-11"
+        ixz="-1.8287E-11"
+        iyy="4.3608E-05"
+        iyz="-3.5479E-11"
+        izz="4.4581E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRFeet.STL" />
+      </geometry>
+      <material
+        name="butyl rubber">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/FRFeet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRFeet"
+    type="fixed">
+    <origin
+      xyz="0 -0.1 0.0248934676145698"
+      rpy="3.14159263868863 -1.5707963267949 0" />
+    <parent
+      link="FRLower" />
+    <child
+      link="FRFeet" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="BLShoulder">
+    <inertial>
+      <origin
+        xyz="-3.46944695195361E-18 -0.00879740255477084 0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0320578905108868" />
+      <inertia
+        ixx="8.45939720006731E-06"
+        ixy="1.11173074327127E-21"
+        ixz="-1.72214447008598E-22"
+        iyy="4.444512462131E-06"
+        iyz="-1.52973545801633E-21"
+        izz="8.78245355399602E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLShoulder"
+    type="continuous">
+    <origin
+      xyz="-0.0650000000000001 0.154999999999999 -0.0150000000000002"
+      rpy="-1.5707963267949 -1.44102861105251 0" />
+    <parent
+      link="Body" />
+    <child
+      link="BLShoulder" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BLUpper">
+    <inertial>
+      <origin
+        xyz="0 0.06 0.00483254652687731"
+        rpy="0 0 0" />
+      <mass
+        value="0.037555677654669" />
+      <inertia
+        ixx="6.20837416421209E-05"
+        ixy="-1.0482032722272E-20"
+        ixz="9.56223180092128E-22"
+        iyy="2.93059020603245E-06"
+        iyz="-1.36361094632562E-20"
+        izz="6.44442544233061E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLUpper"
+    type="continuous">
+    <origin
+      xyz="0 -0.0251674534731227 0.015"
+      rpy="1.5707963267949 -1.02102707486535 0" />
+    <parent
+      link="BLShoulder" />
+    <child
+      link="BLUpper" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BLLower">
+    <inertial>
+      <origin
+        xyz="0 -0.054588 0.013591"
+        rpy="0 0 0" />
+      <mass
+        value="0.048846" />
+      <inertia
+        ixx="0.0001018"
+        ixy="3.6634E-20"
+        ixz="-3.6919E-22"
+        iyy="4.436E-06"
+        iyz="3.3093E-06"
+        izz="0.00010309" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLLower"
+    type="continuous">
+    <origin
+      xyz="0 0.12 0"
+      rpy="0 0 -1.86181998978293" />
+    <parent
+      link="BLUpper" />
+    <child
+      link="BLLower" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="BLFeet">
+    <inertial>
+      <origin
+        xyz="7.959E-08 -0.030962 5.1894E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.11624" />
+      <inertia
+        ixx="4.5835E-05"
+        ixy="-8.041E-11"
+        ixz="-2.2214E-11"
+        iyy="4.3608E-05"
+        iyz="-3.6113E-11"
+        izz="4.4581E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLFeet.STL" />
+      </geometry>
+      <material
+        name="butyl rubber">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BLFeet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BLFeet"
+    type="fixed">
+    <origin
+      xyz="0 -0.1 0.0148325465268772"
+      rpy="-1.33546498470485 1.57079631189374 -1.32543067513811" />
+    <parent
+      link="BLLower" />
+    <child
+      link="BLFeet" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="BRShoulder">
+    <inertial>
+      <origin
+        xyz="-3.46944695195361E-18 -0.00879740255477079 -0.015"
+        rpy="0 0 0" />
+      <mass
+        value="0.0320578905108868" />
+      <inertia
+        ixx="8.45939720006731E-06"
+        ixy="-6.08804930839028E-22"
+        ixz="6.9595475416283E-22"
+        iyy="4.44451246213101E-06"
+        iyz="-3.20651530399136E-21"
+        izz="8.78245355399602E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRShoulder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRShoulder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRShoulder"
+    type="continuous">
+    <origin
+      xyz="0.055 0.155 -0.015"
+      rpy="-1.5708 -1.4773 3.1416" />
+    <parent
+      link="Body" />
+    <child
+      link="BRShoulder" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="BRUpper">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 0.06 0.0182663104096052"
+        rpy="0 0 0" />
+      <mass
+        value="0.037555677654669" />
+      <inertia
+        ixx="6.20837416421209E-05"
+        ixy="5.65394492292245E-20"
+        ixz="-6.03139630358595E-22"
+        iyy="2.93059020603247E-06"
+        iyz="2.33568607617249E-20"
+        izz="6.44442544233061E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRUpper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRUpper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRUpper"
+    type="continuous">
+    <origin
+      xyz="0 -0.0117336895903948 -0.0150000000000001"
+      rpy="-1.5707963267949 -1.00426253041017 -3.14159265358979" />
+    <parent
+      link="BRShoulder" />
+    <child
+      link="BRUpper" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BRLower">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 -0.054587971991015 0.0282323263050382"
+        rpy="0 0 0" />
+      <mass
+        value="0.0488457762535073" />
+      <inertia
+        ixx="0.000101797858292996"
+        ixy="1.46113183401367E-20"
+        ixz="1.34541507994117E-21"
+        iyy="4.43601550465344E-06"
+        iyz="3.30928229921799E-06"
+        izz="0.000103093198261683" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRLower.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRLower.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRLower"
+    type="continuous">
+    <origin
+      xyz="0 0.12 -0.0012071"
+      rpy="0 0 1.5357" />
+    <parent
+      link="BRUpper" />
+    <child
+      link="BRLower" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="BRFeet">
+    <inertial>
+      <origin
+        xyz="7.9013E-08 -0.030962 5.0741E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.11624" />
+      <inertia
+        ixx="4.5835E-05"
+        ixy="-7.6549E-11"
+        ixz="-1.6818E-11"
+        iyy="4.3608E-05"
+        iyz="-3.4776E-11"
+        izz="4.4581E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRFeet.STL" />
+      </geometry>
+      <material
+        name="butyl rubber">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://StickASM/meshes/BRFeet.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BRFeet"
+    type="fixed">
+    <origin
+      xyz="0 -0.1 0.029473"
+      rpy="3.1416 -1.5708 0" />
+    <parent
+      link="BRLower" />
+    <child
+      link="BRFeet" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
