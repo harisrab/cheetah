@@ -5,18 +5,23 @@ Servo rfk, h1, rfh2, lfk, lfh1, lfh2, rbk, rbh1, rbh2, lbk, lbh1, lbh2;
 Servo servo_list[12] = {rfk, h1, rfh2, lfk, lfh1, lfh2, rbk, rbh1, rbh2, lbk, lbh1, lbh2};
 
 #define SHOULDER_WIDTH = 40 //NEEDS CALIBRATION!!!
-#define L1_LENGTH = 65 //NEEDS CALIBRATION!!!
-#define L2_LENGTH = 65 //NEEDS CALIBRATION!!!
-#define WIDTH = 100
-#define LENGTH = 175
+#define L1_LENGTH = 12.5 //NEEDS CALIBRATION!!!
+#define L2_LENGTH = 12.2 //NEEDS CALIBRATION!!!
+#define WIDTH = 26
+#define LENGTH = 17.4
 
 #define RADIAN_TO_ANGLE 57.296
+
+#define FOOT_HEIGHT = 2.0
 
 //int zero_positions[12] = {83, 110, 90, 85, 70, 90, 50, 110, 90, 130, 70, 90};
 const int servo_pins[12] = {28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39};
 const double jointLimit[16] = {-60,120,74,-106,63,-117,-70,110,-72,108,85,-95,63,-117,-71,109}; //NEEDS CALIBRATION!!!
 const double jointLimitRad[16];
 
+double t0;
+double walkLoopSpd = 200;
+double coordinates[8] = {0, 18, 0, 18, 0, 18, 0, 18};
 int lseq[4] = {0,1,3,2};
 
 //typedef struct frame{
@@ -74,6 +79,28 @@ void SetPos(double xPos, double yPos, int leg) {
   return;
 }
 
+double parabola(double x)
+{
+  // FOOT_HEIGHT is the height of the Parabola (How high the foot is off the ground)
+  // f(x) = -16/(9D)[x+3D/8]^2 + (D/4)
+  return (FOOT_HEIGHT / 4) - (16 / (9 * FOOT_HEIGHT)) * (x + 3 * FOOT_HEIGHT / 8) * (x + 3 * FOOT_HEIGHT / 8);
+}
+
+void GaitPattern(double &xPos, double &yPos, int t) {
+  //updates x and y with respect to time
+
+  // x(t):
+  double dx = 0; //! Implementation of time increment!
+
+  yPos += parabola(xPos);
+  xPos += dx;
+  // If peak of arc not reached
+  yPos += parabola(xPos);
+  // If peak of arc reached
+  yPos -= parabola(xPos);
+
+}
+
 void setup() {
   Serial.begin(9600);
   
@@ -92,26 +119,32 @@ void setup() {
   lbh2.attach(servo_pins[11]);
 
   DegToRad(jointLimit, jointLimitRad, 16);
-  
+
   delay(1000);
+
+  t0 = millis();
 }
 
 void loop() {
-//  rfh1.write(zero_positions[0]);
-//  rfh2.write(zero_positions[1]);
-//  rfk.write(zero_positions[2]);
-//  lfh1.write(zero_positions[3]);
-//  lfh2.write(zero_positions[4]);
-//  lfk.write(zero_positions[5]);
-//  rbh1.write(zero_positions[6]);
-//  rbh2.write(zero_positions[7]);
-//  rbk.write(zero_positions[8]);
-//  lbh1.write(zero_positions[9]);
-//  lbh2.write(zero_positions[10]);
-//  lbk.write(zero_positions[11]);
-
-  //Implement movement pattern here by using SetPos() function!
+  int tv, k, li;
+  tv = int(((time.time()-t0)*walkLoopSpd)  % 800);
+  k = int(tv/200);
+  li = lseq[k];
   
+//for (int i=0; i<4; i++) {
+//  setPos(0, 18, li);
+//}
+//
+//if (tv%200 < 100) {
+//  setPos(-5,13,li);
+//}
+//else if (100 <= tv%200 < 200) {
+//  setPos(-10,18,li);
+//}
+
+//Implement movement pattern here by using SetPos() function!
+
+  GaitPattern(coordinates[li*2], coordinates[li*2+1], tv);
 
   delay(1000);
 }

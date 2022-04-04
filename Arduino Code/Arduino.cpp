@@ -29,8 +29,8 @@ int main()
   for (int i=0; i <= stepSize; i++)
   {
     
-    double dx = i/stepSize;
-    cout << "(" << dx << ", " << parabola(a0 + dx, D) << ")" << endl;
+    double dx =  (3*D/4) * i/stepSize;
+    cout << "(" << dx << ", " << parabola(-(a0 + dx), D) << ")" << endl;
   } 
   
   
