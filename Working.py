@@ -34,7 +34,7 @@ def setlegsxyz(xvec,yvec,zvec,vvec):
     # [a1,a2] = xztoang(xvec[0],zvec[0],1,1)
     
     # Front Left Leg
-    a = xyztoang(xvec[0]-xhipf,yvec[0]-yhipl,zvec[0],yoffh,hu,hl)  #(x,y,z,yoffh,hu,hl)
+    a = xyztoang(xvec[0]-xhipf,yvec[0]-yhipl,zvec[0],yoffh,hu,hl)  # (x,y,z,yoffh,hu,hl)
     spd = 1.0
     # any(np.isnan(a))
     joint = 0
@@ -518,7 +518,7 @@ while (1):
             #Move leg k upwards 
             legsO[2,k] += .006
         else:
-            #Move leg k wards 
+            #Move leg k downwards 
             legsO[2,k] -= .006
     else:
         #Move/keep all legs down to the ground
@@ -537,11 +537,11 @@ while (1):
     Ryawr = RotYawr(yawr)
 
 
-# for i in range (10000):
-#     p.stepSimulation()
-#     time.sleep(1./240.)
+for i in range (10000):
+    p.stepSimulation()
+    time.sleep(1./240.)
 
-# print(cubePos,cubeOrn)
+print(cubePos,cubeOrn)
 
 
 p.disconnect()
