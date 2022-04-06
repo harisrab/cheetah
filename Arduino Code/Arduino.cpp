@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 
 // Function for calculating the height of the parabola at a given x (away from origin)
@@ -26,12 +27,26 @@ int main()
   
   cout << fixed << setprecision(3);
 
+  // Open the file to store the data in
+  ofstream myfile;
+  myfile.open ("parabola.txt", ios::app);
+
+  if (myfile.fail())
+  {
+    cout << "Error opening file" << endl;
+    return 1;
+  }
+  
+  // Write the data to the file
   for (int i=0; i <= stepSize; i++)
   {
     
     double dx =  (3*D/4) * i/stepSize;
-    cout << "(" << dx << ", " << parabola(-(a0 + dx), D) << ")" << endl;
+    // cout << "(" << dx << ", " << parabola(-(a0 + dx), D) << ")" << endl;
+    myfile << dx << " " << parabola(-(a0 + dx), D) << endl;
   } 
+
+  myfile.close();
   
   
   

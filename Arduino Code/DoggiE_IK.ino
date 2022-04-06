@@ -12,7 +12,8 @@ Servo servo_list[12] = {rfk, h1, rfh2, lfk, lfh1, lfh2, rbk, rbh1, rbh2, lbk, lb
 
 #define RADIAN_TO_ANGLE 57.296
 
-#define FOOT_HEIGHT = 2.0
+#define FOOT_ARC_HEIGHT 8.0
+#define INIT_FOOT_HEIGHT 18
 
 //int zero_positions[12] = {83, 110, 90, 85, 70, 90, 50, 110, 90, 130, 70, 90};
 const int servo_pins[12] = {28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39};
@@ -20,7 +21,7 @@ const double jointLimit[16] = {-60,120,74,-106,63,-117,-70,110,-72,108,85,-95,63
 const double jointLimitRad[16];
 
 double t0;
-double walkLoopSpd = 200;
+double walkLoopSpd = 1;
 double coordinates[8] = {0, 18, 0, 18, 0, 18, 0, 18};
 int lseq[4] = {0,1,3,2};
 
@@ -83,22 +84,22 @@ double parabola(double x)
 {
   // FOOT_HEIGHT is the height of the Parabola (How high the foot is off the ground)
   // f(x) = -16/(9D)[x+3D/8]^2 + (D/4)
-  return (FOOT_HEIGHT / 4) - (16 / (9 * FOOT_HEIGHT)) * (x + 3 * FOOT_HEIGHT / 8) * (x + 3 * FOOT_HEIGHT / 8);
+  return (FOOT_ARC_HEIGHT / 4) - (16 / (9 * FOOT_ARC_HEIGHT)) * (x * x);
 }
 
-void GaitPattern(double &xPos, double &yPos, int t) {
-  //updates x and y with respect to time
+void GaitPattern(double &xPos, double &yPos, int t)
+{
+  // updates x and y with respect to time
 
-  // x(t):
-  double dx = 0; //! Implementation of time increment!
+  // x(t) = 3D/8 * (1 - x/100) # Where  is t / (NUM_STEPS/2) gives the linear relation between x and t
+  double dx = (3.0 * FOOT_ARC_HEIGHT / 8.0) * (1 - (t / (NUM_STEPS / 2.0)));
 
-  yPos += parabola(xPos);
-  xPos += dx;
-  // If peak of arc not reached
-  yPos += parabola(xPos);
-  // If peak of arc reached
-  yPos -= parabola(xPos);
+  // cout << "(" << t << ", " << dx << ")" << endl;
 
+  xPos = dx;
+  yPos = INIT_FOOT_HEIGHT + parabola(dx);
+
+  // cout << dx << ", " << yPos << endl;
 }
 
 void setup() {
@@ -127,9 +128,11 @@ void setup() {
 
 void loop() {
   int tv, k, li;
-  tv = int(((time.time()-t0)*walkLoopSpd)  % 800);
-  k = int(tv/200);
-  li = lseq[k];
+  // Gives us how far we far in the 800ms cycle
+  tv = int((time.time() - t0)  % 12800);
+  // The k-th occurrence of 3200
+  k = int(tv/3200);
+  // li = lseq[k];
   
 //for (int i=0; i<4; i++) {
 //  setPos(0, 18, li);
@@ -146,5 +149,5 @@ void loop() {
 
   GaitPattern(coordinates[li*2], coordinates[li*2+1], tv);
 
-  delay(1000);
+  // delay(1000);
 }
