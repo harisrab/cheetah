@@ -1,0 +1,34 @@
+// Helper Functions for the parabolic trajectory of DoggiE's foot
+
+// Please define all numbers as floats for the sake of your sanity
+#define FOOT_ARC_HEIGHT 8.0
+#define NUM_STEPS 30.0
+#define INIT_FOOT_HEIGHT 18.0
+
+double parabola(double x)
+{
+  // FOOT_HEIGHT is the height of the Parabola (How high the foot is off the ground)
+  // f(x) = -16/(9D)[x+3D/8]^2 + (D/4)
+  return (FOOT_ARC_HEIGHT / 4) - (16 / (9 * FOOT_ARC_HEIGHT)) * (x * x);
+}
+
+void GaitPattern(double &xPos, double &yPos, int t)
+{
+  // updates x and y with respect to time
+
+  // x(t) = 3D/8 * (1 - x/100) # Where  is t / (NUM_STEPS/2) gives the linear relation between x and t
+  double dx = (3.0 * FOOT_ARC_HEIGHT / 8.0) * (1 - (t / (NUM_STEPS / 2.0)));
+  // cout << "(" << t << ", " << dx << ")" << endl;
+
+  xPos = dx;
+  yPos = INIT_FOOT_HEIGHT + parabola(dx);
+
+  // cout << dx << ", " << parabola(dx) << endl;
+}
+
+int main()
+{
+  int xPos, yPos;
+  
+  return 0;
+}
