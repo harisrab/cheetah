@@ -6,8 +6,9 @@
 #include <iostream>
 using namespace std;
 
-#define FOOT_ARC_HEIGHT 8
-#define NUM_STEPS 4
+// Please define all numbers as floats for the sake of your sanity
+#define FOOT_ARC_HEIGHT 8.0 
+#define NUM_STEPS 30
 #define INIT_FOOT_HEIGHT 18
 
 double parabola(double x)
@@ -23,13 +24,12 @@ void GaitPattern(double &xPos, double &yPos, int t)
 
   // x(t) = 3D/8 * (1 - x/100) # Where  is t / (NUM_STEPS/2) gives the linear relation between x and t
   double dx = (3.0 * FOOT_ARC_HEIGHT / 8.0) * (1 - (t / (NUM_STEPS / 2.0)));
-
   // cout << "(" << t << ", " << dx << ")" << endl;
 
   xPos = dx;
   yPos = INIT_FOOT_HEIGHT + parabola(dx);
 
-  // cout << dx << ", " << yPos << endl;
+  // cout << dx << ", " << parabola(dx) << endl;
 }
 
 
@@ -45,16 +45,12 @@ int main()
   }
   
   // Random Variables
-  int tv, k, li;
   // Initial Position of Doggie's Foot With Shoulder Bases
   double x = 0, y = INIT_FOOT_HEIGHT;
   // Simulate Void Loop()
-  for (int i = 0; i < 12800; i++)
+  for (int i = 0; i <= NUM_STEPS; i++)
   {
-    tv = i;
-    k = int(tv / 3200);
-    GaitPattern(x, y, k);
-
+    GaitPattern(x, y, i);
     testPar << x << ", " << y << endl;
   }
 

@@ -12,6 +12,7 @@ Servo servo_list[12] = {rfk, h1, rfh2, lfk, lfh1, lfh2, rbk, rbh1, rbh2, lbk, lb
 
 #define RADIAN_TO_ANGLE 57.296
 
+// Foot Arc Height Times 4
 #define FOOT_ARC_HEIGHT 8.0
 #define INIT_FOOT_HEIGHT 18
 
